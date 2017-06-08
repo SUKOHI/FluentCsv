@@ -13,7 +13,7 @@ Register the service provider in app.php
 
     'providers' => [
         ...Others...,  
-        Sukohi\FluentCsv\FluentCsvProvider::class,
+        Sukohi\FluentCsv\FluentCsvServiceProvider::class,
     ]
 
 Also alias
