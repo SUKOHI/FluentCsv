@@ -16,5 +16,15 @@
             "Sukohi\\FluentCsv\\": "src/"
         }
     },
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Sukohi\\FluentCsv\\FluentCsvServiceProvider"
+            ],
+            "aliases": {
+                "FluentCsv": "Sukohi\\FluentCsv\\Facades\\FluentCsv"
+            }
+        }
+    }
 }

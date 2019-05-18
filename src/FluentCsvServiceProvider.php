@@ -1,4 +1,6 @@
-<?php namespace Sukohi\FluentCsv;
+<?php
+
+namespace Sukohi\FluentCsv;
 
 use Illuminate\Support\ServiceProvider;
 

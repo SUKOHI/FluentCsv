@@ -2,7 +2,8 @@
 
 class FluentCsv {
 
-    private $csv_data, $encoding;
+    private $csv_data = [];
+    private $encoding = 'UTF-8';
 
 	public function download($filename) {
 
@@ -25,6 +26,27 @@ class FluentCsv {
     public function setData($csv_data, $encoding) {
 
         $this->csv_data = $csv_data;
+        $this->encoding = $encoding;
+        return $this;
+
+    }
+
+    public function addData($csv_data) {
+
+        $this->csv_data[] = $csv_data;
+        return $this;
+
+    }
+
+    public function clearData() {
+
+        $this->csv_data = [];
+        return $this;
+
+    }
+
+    public function setEncoding($encoding) {
+
         $this->encoding = $encoding;
         return $this;
 

@@ -1,31 +1,33 @@
 # FluentCsv
-A Laravel package to generate or save csv file with encoding like SJIS-win.
-(Tested in L5.4)
 
-Installation
-====
+A Laravel package that allows you to generate or save csv file being encoded.  
+This package is maintained under Larave 5.8.
+
+# Installation
 
 Execute composer command.
 
-    composer require sukohi/fluent-csv:1.*
+    composer require sukohi/fluent-csv:2.*
 
-Register the service provider in app.php
+# Preparation
+
+If your Laravel's version is less than 5.4, set the service provider and alias in app.php
 
     'providers' => [
         ...Others...,  
         Sukohi\FluentCsv\FluentCsvServiceProvider::class,
     ]
 
-Also alias
-
     'aliases' => [
         ...Others...,  
         'FluentCsv'   => Sukohi\FluentCsv\Facades\FluentCsv::class
     ]
-    
+
 # Usage
 
-(Download)
+## The simplest way
+
+[Download]
 
     $csv_data = [   // UTF-8 
         ['データ 1-1', 'データ 1-2', 'データ 1-3'],
@@ -34,10 +36,9 @@ Also alias
     ];
     $to_encoding = 'SJIS-win';
     $fluent = \FluentCsv::setData($csv_data, $to_encoding);
-
     return $fluent->download('テスト.csv');    // File name can be multi-byte character.
     
-(Save)
+[Save]
 
     $csv_data = [   // UTF-8 
         ['データ 1-1', 'データ 1-2', 'データ 1-3'],
@@ -51,9 +52,25 @@ Also alias
         echo 'Complete!';
 
     }
-    
-License
-====
+
+## Add data in loop
+
+    $items = \App\Item::get();
+    $fluent = \FluentCsv::setEncoding('SJIS-win');
+
+    foreach($items as $item) {
+
+        $fluent->addData($item->only(['id', 'name']));
+
+    }
+
+    return $fluent->download('test.csv');
+
+## Clear data
+
+    $fluent->clearData();
+
+# License
 
 This package is licensed under the MIT License.
 
