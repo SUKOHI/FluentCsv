@@ -1,27 +1,13 @@
 # FluentCsv
 
 A Laravel package that allows you to generate or save csv file being encoded.  
-This package is maintained under Larave 5.8.
+This package is maintained under Larave 5.7.
 
 # Installation
 
 Execute composer command.
 
     composer require sukohi/fluent-csv:3.*
-
-# Preparation
-
-If your Laravel's version is less than 5.4, set the service provider and alias in app.php
-
-    'providers' => [
-        ...Others...,  
-        Sukohi\FluentCsv\FluentCsvServiceProvider::class,
-    ]
-
-    'aliases' => [
-        ...Others...,  
-        'FluentCsv'   => Sukohi\FluentCsv\Facades\FluentCsv::class
-    ]
 
 # Usage
 
