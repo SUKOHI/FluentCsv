@@ -7,7 +7,7 @@ This package is maintained under Larave 5.8.
 
 Execute composer command.
 
-    composer require sukohi/fluent-csv:2.*
+    composer require sukohi/fluent-csv:3.*
 
 # Preparation
 
