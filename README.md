@@ -25,9 +25,7 @@ If your Laravel's version is less than 5.4, set the service provider and alias i
 
 # Usage
 
-## The simplest way
-
-[Download]
+## Download
 
     $csv_data = [   // UTF-8 
         ['データ 1-1', 'データ 1-2', 'データ 1-3'],
@@ -38,7 +36,7 @@ If your Laravel's version is less than 5.4, set the service provider and alias i
     $fluent = \FluentCsv::setData($csv_data, $to_encoding);
     return $fluent->download('テスト.csv');    // File name can be multi-byte character.
     
-[Save]
+## Save
 
     $csv_data = [   // UTF-8 
         ['データ 1-1', 'データ 1-2', 'データ 1-3'],
@@ -69,6 +67,18 @@ If your Laravel's version is less than 5.4, set the service provider and alias i
 ## Clear data
 
     $fluent->clearData();
+
+# Retrieve
+
+    // Basic way
+    $path = '/PATH/TO/YOUR/CSV/FOLDER/test.csv';
+    $data = \FluentCsv::parse($path);
+    
+    // with encoding
+    $path = '/PATH/TO/YOUR/CSV/FOLDER/test.csv';
+    $from_encoding = 'sjis-win';
+    $data = \FluentCsv::parse($path, $from_encoding);
+
 
 # License
 

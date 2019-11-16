@@ -1,4 +1,6 @@
-<?php namespace Sukohi\FluentCsv;
+<?php
+
+namespace Sukohi\FluentCsv;
 
 class FluentCsv {
 
@@ -49,6 +51,28 @@ class FluentCsv {
 
         $this->encoding = $encoding;
         return $this;
+
+    }
+
+    public function parse($path, $encoding = '') {
+
+	    $data = [];
+        $original_data = file_get_contents($path);
+        $csv_data = (!empty($encoding))
+            ? mb_convert_encoding($original_data, 'utf-8', 'SJIS-win')
+            : $original_data;
+
+        $fp = tmpfile();
+        fwrite($fp, $csv_data);
+        fseek($fp, 0);
+
+        while($row_data = fgetcsv($fp)) {
+
+            $data[] = $row_data;
+
+        }
+
+        return $data;
 
     }
 
