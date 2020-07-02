@@ -1,4 +1,6 @@
-<?php namespace Sukohi\FluentCsv\Facades;
+<?php
+
+namespace Sukohi\FluentCsv\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
